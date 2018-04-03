@@ -10,6 +10,10 @@ import (
 )
 
 func TestGoflags(t *testing.T) {
+	if !goflag.CommandLine.Parsed() {
+		t.Fatal("goflag.CommandLine.Parsed() return false after f.Parse() called")
+	}
+
 	goflag.String("stringFlag", "stringFlag", "stringFlag")
 	goflag.Bool("boolFlag", false, "boolFlag")
 
